@@ -52,9 +52,7 @@ This video demonstrates the full process:
 2.  Typing some text and pressing `Esc` to stop it.
 3.  Showing the email received with the logs, screenshot, and audio attachment.
 
-[![Keylogger Demo Video](https://img.youtube.com/vi/YOUR_YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_YOUTUBE_VIDEO_ID)
-
-> **Note:** To embed a video like this, you need to upload it to YouTube first.
+[![Keylogger Demo Video](https://img.youtube.com/vi/YOUR_YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=sX4Emo-HpNU)
 
 ---
 
