@@ -30,6 +30,34 @@ The script uses several Python libraries to achieve its functionality:
 * `smtplib` & `email`: To send the collected data via email using an SMTP server.
 * `threading`: To run the reporting function periodically without blocking the key listener.
 
+---
+
+## Demonstration
+
+Here’s a quick look at the keylogger in action.
+
+### Code Screenshot
+A glimpse of the clean and well-commented Python code structure.
+
+![Code Screenshot](assets/code_screenshot.png)
+
+### Output Screenshot
+Example of the console output when the keylogger starts and successfully sends a report.
+
+![Output Screenshot](assets/output_screenshot.png)
+
+### Video Walkthrough
+This video demonstrates the full process:
+1.  Running the script.
+2.  Typing some text and pressing `Esc` to stop it.
+3.  Showing the email received with the logs, screenshot, and audio attachment.
+
+[![Keylogger Demo Video](https://img.youtube.com/vi/YOUR_YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_YOUTUBE_VIDEO_ID)
+
+> **Note:** To embed a video like this, you need to upload it to YouTube first.
+
+---
+
 ## Prerequisites
 
 * Python 3.x
