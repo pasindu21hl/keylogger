@@ -58,10 +58,9 @@ This video demonstrates the full process:
 
 ## Prerequisites
 
-* Python 3.x
-* `pip` (Python package installer)
-
 ## Installation
+
+To get the project running, first clone the repository and then install the necessary dependencies using the `requirements.txt` file.
 
 1.  **Clone the repository:**
     ```bash
@@ -69,12 +68,33 @@ This video demonstrates the full process:
     cd your-repository-name
     ```
 
-2.  **Install the required Python packages:**
+2.  **Install Dependencies:**
+    This project uses a `requirements.txt` file to manage all its dependencies. You can install them all with a single command:
     ```bash
-    pip install pynput pyscreenshot sounddevice
+    pip install -r requirements.txt
     ```
-    *Note: `pyscreenshot` may require `Pillow` to be installed (`pip install Pillow`).*
+    This will automatically install `pynput`, `pyscreenshot`, `sounddevice`, and other necessary libraries.
 
+---
+
+### Development Dependencies (Optional)
+
+If you plan to contribute to the development of this project, you might need additional tools for linting, formatting, or testing. These can be managed in a separate file.
+
+1.  **Create a `requirements-dev.txt` file:**
+    ```
+    # requirements-dev.txt
+
+    # Add tools for code formatting, linting, etc.
+    black
+    flake8
+    ```
+
+2.  **Install Development Dependencies:**
+    To install these, run the following command:
+    ```bash
+    pip install -r requirements-dev.txt
+    ```
 ## Configuration
 
 Before running the script, you must configure your email settings directly in the Python file (`keylogger.py`).
