@@ -52,7 +52,7 @@ This video demonstrates the full process:
 2.  Typing some text and pressing `Esc` to stop it.
 3.  Showing the email received with the logs, screenshot, and audio attachment.
 
-[![Keylogger Demo Video](https://img.youtube.com/vi/YOUR_YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=sX4Emo-HpNU)
+[![Keylogger Demo Video](https://img.youtube.com/vi/watch?v=sX4Emo-HpNU/0.jpg)](https://www.youtube.com/watch?v=sX4Emo-HpNU)
 
 ---
 
@@ -64,8 +64,8 @@ To get the project running, first clone the repository and then install the nece
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
-    cd your-repository-name
+    git clone https://github.com/pasindu21hl/keylogger.git
+    cd keylogger-main
     ```
 
 2.  **Install Dependencies:**
@@ -138,10 +138,5 @@ Before running the script, you must configure your email settings directly in th
 
 4.  To stop the keylogger, press the `Esc` key. The script will stop listening for keys and terminate.
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-***
 
 **Final Reminder:** This tool is powerful and intrusive. Please use it responsibly and ethically. The purpose of this repository is to learn about system security, not to violate others' privacy.
