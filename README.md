@@ -1,123 +1,101 @@
-![warning](https://img.shields.io/badge/WARNING-Educational%20Use%20Only-red)
+# Advanced Python Keylogger for Educational Purposes
 
-> **❗️ 🔴 Warning — Educational Use Only:**
+> ⚠️ **Ethical Warning & Disclaimer**
+> This software is intended for educational and research purposes only. It is designed to help users understand the potential security risks and the mechanics of how such surveillance tools work.
 >
-> This repository contains code that demonstrates techniques for capturing keystrokes, screenshots, and microphone audio. The version provided here is intended **strictly for education and research** on systems you own or where you have explicit written permission. Developing, distributing, or running functioning surveillance software on devices you do not own or do not have permission to test is unethical and may be illegal in your jurisdiction.
----
-
-## Table of Contents
-- [Overview](#overview)  
-- [Safety & Legal Notice](#safety--legal-notice)  
-- [Repository Contents](#repository-contents)  
-- [Requirements](#requirements)  
-- [Setup (local)](#setup-local)  
-- [Configuration](#configuration)  
-- [How to Run (Safe Mode)](#how-to-run-safe-mode)  
-- [Testing & Sandboxing Recommendations](#testing--sandboxing-recommendations)  
-
----
+> **DO NOT** use this software on any computer or system that you do not own or have explicit, written permission to monitor. Unauthorized installation or use of this software on a system is illegal and unethical. The developer assumes no liability and is not responsible for any misuse or damage caused by this program.
 
 ## Overview
-This project demonstrates structural and programming patterns used to collect keyboard events, screenshots, and audio recordings. The public repository contains a **GitHub-safe** variant that replaces active capture routines with mocks or clear warnings so that code can be studied without enabling real surveillance.
 
----
+This project is a Python-based keylogger that demonstrates several surveillance techniques. It captures not only keystrokes but also system information, screenshots, and audio from the microphone, sending all collected data to a specified email address at regular intervals.
 
-## Safety & Legal Notice
-- **Do not** run the working keylogger on any machine you do not own or have explicit written consent to test.  
-- Laws on computer monitoring vary; you are responsible for legal compliance.  
-- GitHub and other platforms may remove or restrict content classified as malware. Use the safe/demo version for publishing.
 
----
 
-## Repository Contents
-- `keylogger_safe.py` — Demonstrative, non-operational version suitable for publishing.  
-- `requirements.txt` — Packages used during development (for reference).  
-- `.gitignore` — Recommended ignore patterns.  
-- `README.md` — This file.  
+## Features
 
-> Note: Do **not** publish files that contain real credentials, functioning surveillance code, or personally identifiable data.
+* **Keystroke Logging**: Records all key presses, including special keys like `Space`, `Enter`, and `Esc`.
+* **Screenshot Capture**: Takes a screenshot of the entire screen at each reporting interval.
+* **Microphone Recording**: Records a 10-second audio clip from the default microphone.
+* **System Information**: Gathers basic system details (Hostname, IP Address, OS, Processor).
+* **Email Reporting**: Periodically sends the collected logs, screenshot, and audio recording as attachments to a pre-configured email address.
+* **Timed Reports**: Data is sent at a configurable time interval (e.g., every 60 seconds).
+* **Clean Exit**: The logger can be stopped cleanly by pressing the `Esc` key.
 
----
+## How It Works
 
-## Requirements
-- Python 3.8+ recommended.  
-- Development dependencies (only if you run full capture locally and responsibly):
-```
-pyscreenshot
-pynput
-sounddevice
-Pillow
-scipy
-```
-The safe/demo variant may not require all of the above.
+The script uses several Python libraries to achieve its functionality:
+* `pynput`: To listen for and record keyboard events.
+* `pyscreenshot`: To capture the screen.
+* `sounddevice`: To record audio from the microphone.
+* `smtplib` & `email`: To send the collected data via email using an SMTP server.
+* `threading`: To run the reporting function periodically without blocking the key listener.
 
----
+## Prerequisites
 
-## Setup (local)
-1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd <repo-directory>
-```
-2. Create and activate a virtual environment:
-- Windows (PowerShell):
-```powershell
-C:/path/to/python.exe -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-- macOS / Linux:
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-3. Install dependencies (if needed):
-```bash
-pip install -r requirements.txt
-```
+* Python 3.x
+* `pip` (Python package installer)
 
----
+## Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+    cd your-repository-name
+    ```
+
+2.  **Install the required Python packages:**
+    ```bash
+    pip install pynput pyscreenshot sounddevice
+    ```
+    *Note: `pyscreenshot` may require `Pillow` to be installed (`pip install Pillow`).*
 
 ## Configuration
-**Never** hard-code credentials in the repository.
 
-Example using environment variables (do not commit `.env`):
-```
-EMAIL_ADDRESS=you@example.com
-EMAIL_PASSWORD=your_app_password_or_placeholder
-SMTP_SERVER=smtp.gmail.com
-SMTP_PORT=587
-```
+Before running the script, you must configure your email settings directly in the Python file (`keylogger.py`).
 
-Read values in Python:
-```python
-import os
-EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS")
-EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
-SMTP_PORT = int(os.environ.get("SMTP_PORT", 587))
-```
+1.  **Open the `keylogger.py` file** in a text editor.
 
----
+2.  **Set your email credentials:**
+    Update these variables with your own details:
+    ```python
+    # Email Configuration
+    EMAIL_ADDRESS = "your-email@gmail.com"
+    EMAIL_PASSWORD = "your-app-password"
+    ```
 
-## How to Run (Safe Mode)
-The repository includes a safe/demo script that shows program flow without capturing real user data.
+    > **IMPORTANT SECURITY NOTE FOR GMAIL USERS:**
+    > If you are using Gmail, you cannot use your regular password directly due to Google's security policies. You must enable 2-Factor Authentication (2FA) for your Google account and then generate an **"App Password"**.
+    >
+    > 1. Go to your Google Account settings.
+    > 2. Navigate to **Security**.
+    > 3. Under "Signing in to Google," select **App Passwords**.
+    > 4. Generate a new password for an app (you can name it "Python Keylogger").
+    > 5. Google will provide a 16-character password. Use this password for the `EMAIL_PASSWORD` variable.
+    > 
 
-Run:
-```bash
-python keylogger_safe.py
-```
+3.  **Set the reporting interval:**
+    You can change the time (in seconds) between email reports. The default is 60 seconds.
+    ```python
+    SEND_REPORT_EVERY = 60 # Time in seconds
+    ```
 
-Safe mode:
-- Simulates key events and logs to console or a local file.
-- Creates dummy or placeholder media files instead of real screenshots/audio.
-- Prints (or simulates) email-sending behavior rather than performing network operations.
+## Usage
 
----
+1.  Navigate to the project directory in your terminal.
 
-## Testing & Sandboxing Recommendations
-- Use an isolated virtual machine (VirtualBox, VMware) or disposable test environment for any live tests.  
-- Use snapshots to revert changes.  
-- Mock or stub network calls (e.g., mock `smtplib.SMTP`) when testing.  
-- Avoid using real credentials during tests; use placeholders or blocked network access.
+2.  Run the script:
+    ```bash
+    python keylogger.py
+    ```
 
----
+3.  The script will start running in the background. It will print "Keylogger started." to the console.
+
+4.  To stop the keylogger, press the `Esc` key. The script will stop listening for keys and terminate.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+***
+
+**Final Reminder:** This tool is powerful and intrusive. Please use it responsibly and ethically. The purpose of this repository is to learn about system security, not to violate others' privacy.
