@@ -1,4 +1,4 @@
-# Keylogger Project — README.md
+# Keylogger Project
 
 > **Warning — Educational Use Only:**
 > This repository contains code that demonstrates techniques for capturing keystrokes, screenshots, and microphone audio. The version provided here is intended **strictly for education and research** on systems you own or where you have explicit written permission. Developing, distributing, or running functioning surveillance software on devices you do not own or do not have permission to test is unethical and may be illegal in your jurisdiction.
