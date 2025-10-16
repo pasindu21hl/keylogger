@@ -14,9 +14,6 @@
 - [Configuration](#configuration)  
 - [How to Run (Safe Mode)](#how-to-run-safe-mode)  
 - [Testing & Sandboxing Recommendations](#testing--sandboxing-recommendations)  
-- [.gitignore Suggestions](#gitignore-suggestions)  
-- [Contributing](#contributing)  
-- [License](#license)
 
 ---
 
