@@ -1,0 +1,5 @@
+pyscreenshot
+pynput
+sounddevice
+Pillow
+scipy
